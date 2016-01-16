@@ -1,0 +1,1 @@
+function cacheImage(e){"use strict";var c=e,g=c.length,a,n;for(n=0;g>n;n+=1)a=new Image,a.src=c[n]}cacheImage(window.screen.width<1e3?["./img/mobile_background.jpg"]:["./img/desktop_background.jpg"]);

@@ -1,0 +1,188 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+      <div class="header-disabler"></div>
+      <div class="wrapper">
+      
+        <header class="header">
+          <menu>
+            <ul>
+              <li>Some mi</li>
+            </ul>
+          </menu>
+          <div class="container-fluid header-container">
+            <div class="row quote-row">
+              <div class="col-xs-12 quote-column">
+                <blockquote class="blockquote">
+                  <p class="quoteText">Some fancy text here blah-blah-blah</p> 
+                  <footer class="quoteAuthor">I'm the author</footer>
+                </blockquote>
+              </div>
+            </div>
+            
+            <nav class="nav">
+              <div class="row nav-row">
+                  <div class="col-sm-4 col-xs-4 mobile-menu-column"><button class="mobile-menu-btn vcenter"></button></div>
+                  <div class="col-sm-4 col-xs-4 mobile-logo-column">
+                    <img class="mobile-logo vcenter" src="./img/logo.png" alt="logo">
+                  </div>
+                  <div class="col-md-12 desktop-menu-column">
+                    <ul class="desktop-menu vcenter">
+                      <li class="left">1</li>
+                      <li class="left">2</li>
+                      <li class="left">3</li>
+                      <!--li class="desktop-logo"><img class="desktop-logo" src="./img/logo.png" alt="logo"></li-->
+                      <li class="right">5</li>
+                      <li class="right">6</li>
+                      <li class="right">7</li>
+                    </ul>
+                  </div>
+                </div>
+            </nav>
+          </div> <!--container-fluid-->    
+        </header>
+
+      <main class="main">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="main-header">This is big and very important header</h1>
+            </div>
+          </div>
+          <div class="row content">
+            <div class="col-md-6 col-md-offset-1">
+              <h3>About author</h3>
+              <p class="main-text">On this site you will find the full and unabridged texts of classic works of English literature. Fiction from authors like Lewis Carroll, the Bronte sisters (Anne, Charlotte and Emily), Jack London, Mark Twain, Charles Dickens and many others, and classic scientific works from Charles Darwin and Rene Descartes.
+    More books will be added soon, however as this site is maintained by enthusiasts rather than professional librarians this may be a very slow process. Our sponsor, the people behind the knowledge.com™ directory, is currently working on new technology that will make this updating easier and quicker in the near future. </p>
+            </div>
+            <div class="col-md-4 col-md-offset-1"> 
+              <img class="main-image" src="./img/paragraph-image.png" alt="paragraph-image">
+            </div>
+          </div>
+        </div><!--container-fluid-->
+      </main>
+      <footer class="footer">
+        <div class="container-fluid">
+          <div class="col-md-12">
+            <p class="copyright">
+              Copyright goes here > 2016   
+            </p>
+          </div>
+        </div>
+      </footer>
+      </div><!--wrapper-->
+
+        <!--script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script-->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hogan.js/3.0.2/hogan.min.mustache.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Director/1.2.8/director.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="./js/famousQuotes.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="./js/cacheMainBackground.js"></script>
+        <script src="./js/router.js" defer></script>
+        <script src="./js/menuData.js"></script>
+        <script src="./js/authorsData.js"></script>
+
+        <script type="text/html" id="menuTemplate">
+  <ul class="desktop-menu vcenter">
+  {{#authors}}
+  <li class="{{class}}"><a href="index.html/{{route}}">{{authorName}}</a></li>
+  {{/authors}}
+  </ul>
+  <p>{{test.testVal}}</p>
+</script>
+        <script type="text/html" id="mobileMenuTemplate">
+    <ul>
+    {{#authors}}
+    <li class="{{class}}"><a href="/{{route}}">{{authorName}}</a></li>
+    {{/authors}}
+    </ul>
+</script>
+
+        <script type="text/html" id="paragraphTemplate">
+  <div class="col-md-6 col-md-offset-1">
+    {{#books}}
+    <h3>{{header}}</h3>
+    <p class="main-text">{{text}}</p>
+    {{/books}}
+  </div>
+  <div class="col-md-4 col-md-offset-1">
+    <img class="main-image" src="./images/authors/{{photo}}.jpg" alt="{{name}}">
+  </div>
+</script>
+        <!-- input in wrapper -->
+<script type="text/html" id="pageTemplate">
+<div class="container">
+      <div class="jumbotron">
+        <h1>{{name}}</h1>
+        <p class="lead">{{lead}}</p>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          {{#books}}
+          <h4>{{header}}</h4>
+          <p>{{text}}</p>
+        {{/books}}
+        </div>
+        <div class="col-lg-6">
+          <img src="./img/authors/{{photo}}.jpg" alt="{{name}}">
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2015 Company, Inc.</p>
+      </footer>
+
+    </div> <!-- /container -->
+</script>
+        <script type="text/html" id="pageMenuTemplate">
+<div class="wrapper">
+<nav class="nav">
+  <div class="row nav-row">
+    <div class="col-md-12 desktop-menu-column">
+      <ul class="desktop-menu vcenter">
+        {{#authors}}
+      <li class="{{class}}"><a href="#/{{route}}">{{authorName}}</a></li>
+        {{/authors}}
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+</script>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>
