@@ -1,3 +1,39 @@
+.offside-mobile-menu {
+  width: 70%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  z-index: 0;
+  background: lightgrey;
+}
+.offside-mobile-menu ul {
+  list-style: none;
+  height: 100%;
+}
+.offside-mobile-menu li {
+  height: 10%;
+  width: 90%;
+  text-align: left;
+}
+.offside-mobile-menu a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  font-size: 1.5em;
+  border-bottom: 1px solid black;
+  position: relative;
+}
+.offside-mobile-menu span {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
 .border {
   border: 1px solid black;
 }
@@ -29,11 +65,16 @@ body,
 .header {
   height: 100%;
 }
+.wrapper {
+  overflow: hidden;
+}
 .header {
   padding-top: 15%;
   background: url(../img/mobile_background.jpg) no-repeat;
   background-size: cover;
   position: relative;
+  transition: left 1s;
+  left: 0;
 }
 .header .blockquote {
   text-align: center;
@@ -70,4 +111,7 @@ body,
   margin: auto;
   max-width: 100%;
   max-height: 100%;
+}
+.off-canvas {
+  left: 70%;
 }

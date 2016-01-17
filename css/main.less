@@ -1,18 +1,11 @@
-@100: 100%;
+@import "canvasMenuTest.less";
 
-.border {
-  border: 1px solid black;
-}
-
+.border {border: 1px solid black;}
 .centerV {margin: 0; position: absolute; top: 50%; transform: translate(0, -50%);}
 .centerVH {position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto;}
 
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
 
 html,
 body,
@@ -21,16 +14,24 @@ body,
   height: 100%;
 }
 
+.wrapper {
+  overflow: hidden;
+}
+
+
 .header {
-  padding-top: 15%;
+  padding-top: 15%; //review this prop
   background: url(../img/mobile_background.jpg) no-repeat;
   background-size: cover; 
   position: relative;
+  transition: left 1s;
+  left: 0;
 
   .blockquote {
     text-align: center;
     //overflow: hidden;
     //max-width: ширина, работает. Оверфлоу прячет и нормально отрабатывает. 
+
     .quoteText {
       font-size: 2em; 
     // margin: 0;
@@ -60,4 +61,8 @@ body,
     max-height: 100%;
    
   }
+}
+
+.off-canvas {
+  left: 70%;
 }
