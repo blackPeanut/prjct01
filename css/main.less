@@ -1,5 +1,7 @@
 @import "canvasMenuTest.less";
 
+//Z indexes - disabler: 1, blockquote: 2
+
 .border {border: 1px solid black;}
 .centerV {margin: 0; position: absolute; top: 50%; transform: translate(0, -50%);}
 .centerVH {position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto;}
@@ -10,24 +12,42 @@ html {box-sizing: border-box;}
 html,
 body,
 .wrapper,
-.header {
+.header,
+.main-page {
   height: 100%;
 }
 
 .wrapper {
+  //overflow: hidden;
+}
+
+.disabler {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: black;
+  opacity: 0;
+  z-index: 1;
+}
+
+// -------------HEADER
+
+.header {
   overflow: hidden;
 }
 
-
-.header {
+.main-page {
+  visibility: hidden;
   padding-top: 15%; //review this prop
   background: url(../img/mobile_background.jpg) no-repeat;
   background-size: cover; 
   position: relative;
   transition: left 1s;
   left: 0;
-
+  
   .blockquote {
+    position: relative;
+    z-index: 2;
     text-align: center;
     overflow: hidden;
     max-height: 70%;
@@ -35,11 +55,14 @@ body,
 
     .quoteText {
       font-size: 2em; 
+      color: transparent;
     // margin: 0;
     }
     .quoteAuthor {
       font-size: 1.5em; 
-      text-align: left;
+      text-align: center;
+      color: white;
+      opacity: 0;
     }
   }
   
@@ -50,12 +73,14 @@ body,
     bottom: 0;
     padding-left: 10%;
   }
+
   .mobile-menu-btn {
     .centerV;
     width: 3em; 
     height: 3em;
     background: tomato;
   }
+  
   .mobile-logo {
     .centerVH;
     max-width: 100%; 
@@ -67,3 +92,17 @@ body,
 .off-canvas {
   left: 70%;
 }
+
+
+// -------------BODY
+.main {
+  display: none;
+  height: 100%;
+  padding: 5%;
+
+  img {
+    max-width: 100%;
+    max-height: 30%;
+  }
+}
+

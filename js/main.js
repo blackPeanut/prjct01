@@ -1,6 +1,6 @@
 /*global window */
 /* 
-Line 66, 67 start functions (HOGAN RENDERING AND OTHER INTERNAL CALLBACKS);
+LINE 73! HOGAN Compiles
 */
 window.onload = function () {
     "use strict";
@@ -17,7 +17,7 @@ window.onload = function () {
 
     function adjustScreen() {
         var
-            el = getEl(".quote-column"),
+            el = getEl(".blockquote"),
             quoteText = getEl(".quoteText"),
             quoteAuthor = getEl(".quoteAuthor"),
 
@@ -70,7 +70,7 @@ window.onload = function () {
                 currentSpan += 1;
                 if (currentSpan >= spans.length) {
                     clearInterval(interval);
-		            createMenuFromTmpl()
+		  //          createMenuFromTmpl()
                     fadeIn(".quoteAuthor", 1000, closeHeaderDisabler);
                 }
             }, intervalSpeed);
@@ -95,7 +95,7 @@ window.onload = function () {
     }
 
     function closeHeaderDisabler() {
-        slideUp(".header-disabler", function () {
+        slideUp(".disabler", function () {
             showInvisibles(".main");
             showInvisibles(".footer");
         }, 100);
@@ -165,12 +165,13 @@ window.onload = function () {
    
     prepareText();
     adjustScreen();
-    fadeIn(".header-disabler", 1000, function () {
-      showInvisibles(".header");//ok 
+    fadeIn(".disabler", 1000, function () {
+      showInvisibles(".main-page");//ok 
       printQuote();
     }, 300);
     //split on parts?????
-// TEMPLATING, DISABLED 13.01.2015   
+// TEMPLATING, DISABLED 17.01.2015   
+/*
    function createMenuFromTmpl() {
       var desktopTemplate = Hogan.compile(document.querySelector("#menuTemplate").innerHTML);
       var mobileTemplate = Hogan.compile(document.querySelector("#mobileMenuTemplate").innerHTML);
@@ -179,6 +180,7 @@ window.onload = function () {
       document.querySelector(".desktop-menu-column").innerHTML = outputDesktop;
       document.querySelector("menu").innerHTML = outputMobile;
   }
+*/
 /*
     setTimeout(function () {
 	//renderTemplatesInDom - test feature, should be somewhere else, but now import doesn't load on time;
@@ -189,8 +191,7 @@ window.onload = function () {
       document.querySelector(".mainNav").innerHTML = output;
     }, 10000);
 */
-
-
+/*
 var flag = false;
 var toggle = document.querySelector(".mobile-menu-btn").addEventListener("click", function () {
         var container = document.querySelector(".header-container");
@@ -209,5 +210,5 @@ var toggle = document.querySelector(".mobile-menu-btn").addEventListener("click"
         }
 
 }, false);
-
+*/
 };
