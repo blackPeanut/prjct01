@@ -78,6 +78,8 @@ body,
 }
 .header .blockquote {
   text-align: center;
+  overflow: hidden;
+  max-height: 70%;
 }
 .header .blockquote .quoteText {
   font-size: 2em;

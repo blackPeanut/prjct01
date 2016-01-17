@@ -89,6 +89,17 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
+	"\/css\/min\/typer-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/min\/typer-min.js",
+		"outputAbbreviatedPath": "\/css\/min\/min\/typer-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
 	"\/css\/normalize.css": {
 		"fileType": 16,
 		"ignore": 0,
@@ -97,6 +108,17 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/css\/typer.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/typer.js",
+		"outputAbbreviatedPath": "\/css\/min\/typer-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
 		},
 	"\/doc\/css.md": {
 		"criticStyle": 0,
@@ -565,6 +587,28 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/templateScriptRenderer.js",
 		"outputAbbreviatedPath": "\/js\/min\/templateScriptRenderer-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/js\/tests\/min\/typer-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/tests\/min\/typer-min.js",
+		"outputAbbreviatedPath": "\/js\/tests\/min\/min\/typer-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/js\/tests\/typer.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/tests\/typer.js",
+		"outputAbbreviatedPath": "\/js\/tests\/min\/typer-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
