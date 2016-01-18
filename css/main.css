@@ -142,3 +142,61 @@ body,
   max-width: 100%;
   max-height: 30%;
 }
+/*************** DESKTOP **************/
+@media (min-width: 700px) {
+  .header {
+    position: relative;
+  }
+  .main-page {
+    padding-top: 8%;
+  }
+  .nav {
+    display: none;
+  }
+  .offside-mobile-menu {
+    visibility: visible;
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: auto;
+    right: auto;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    background: grey;
+  }
+  .offside-mobile-menu ul {
+    text-align: justify;
+    list-style: none;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+  .offside-mobile-menu ul:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+  }
+  .offside-mobile-menu li {
+    display: inline-block;
+    height: 50%;
+    width: 10%;
+    border: 1px solid black;
+  }
+  .offside-mobile-menu a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    font-size: 1.5em;
+    border-bottom: none;
+    position: relative;
+  }
+  .offside-mobile-menu span {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}

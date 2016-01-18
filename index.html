@@ -24,7 +24,10 @@
               <li><a href="#"><span>testItem1</span></a></li>
               <li><a href="#"><span>testItem2</span></a></li>
               <li><a href="#"><span>testItem3</span></a></li>
+              <li><a href="#"><span>Logo</span></a></li>
               <li><a href="#"><span>testItem4</span></a></li>
+              <li><a href="#"><span>testItem5</span></a></li>
+              <li><a href="#"><span>testItem6</span></a></li>
             </ul>
           </menu>
           <section class="main-page">
@@ -78,74 +81,6 @@
         <script src="./js/menuData.js"></script>
         <script src="./js/authorsData.js"></script>
         --> 
-        <script type="text/html" id="menuTemplate">
-  <ul class="desktop-menu vcenter">
-  {{#authors}}
-  <li class="{{class}}"><a href="index.html/{{route}}">{{authorName}}</a></li>
-  {{/authors}}
-  </ul>
-  <p>{{test.testVal}}</p>
-</script>
-        <script type="text/html" id="mobileMenuTemplate">
-    <ul>
-    {{#authors}}
-    <li class="{{class}}"><a href="/{{route}}">{{authorName}}</a></li>
-    {{/authors}}
-    </ul>
-</script>
-
-        <script type="text/html" id="paragraphTemplate">
-  <div class="col-md-6 col-md-offset-1">
-    {{#books}}
-    <h3>{{header}}</h3>
-    <p class="main-text">{{text}}</p>
-    {{/books}}
-  </div>
-  <div class="col-md-4 col-md-offset-1">
-    <img class="main-image" src="./images/authors/{{photo}}.jpg" alt="{{name}}">
-  </div>
-</script>
-        <!-- input in wrapper -->
-<script type="text/html" id="pageTemplate">
-<div class="container">
-      <div class="jumbotron">
-        <h1>{{name}}</h1>
-        <p class="lead">{{lead}}</p>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          {{#books}}
-          <h4>{{header}}</h4>
-          <p>{{text}}</p>
-        {{/books}}
-        </div>
-        <div class="col-lg-6">
-          <img src="./img/authors/{{photo}}.jpg" alt="{{name}}">
-        </div>
-      </div>
-
-      <footer class="footer">
-        <p>&copy; 2015 Company, Inc.</p>
-      </footer>
-
-    </div> <!-- /container -->
-</script>
-        <script type="text/html" id="pageMenuTemplate">
-<div class="wrapper">
-<nav class="nav">
-  <div class="row nav-row">
-    <div class="col-md-12 desktop-menu-column">
-      <ul class="desktop-menu vcenter">
-        {{#authors}}
-      <li class="{{class}}"><a href="#/{{route}}">{{authorName}}</a></li>
-        {{/authors}}
-      </ul>
-    </div>
-  </div>
-</nav>
-</div>
-</script>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
