@@ -1,11 +1,9 @@
-@import "canvasMenuTest.less";
+@import "pageMenu.less";
 
 //Z indexes - disabler: 1, blockquote: 2
-
 .border {border: 1px solid black;}
 .centerV {margin: 0; position: absolute; top: 50%; transform: translate(0, -50%);}
 .centerVH {position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto;}
-
 html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
 
@@ -17,10 +15,6 @@ body,
   height: 100%;
 }
 
-.wrapper {
-  //overflow: hidden;
-}
-
 .disabler {
   width: 100%;
   height: 100%;
@@ -30,144 +24,84 @@ body,
   z-index: 1;
 }
 
-// -------------HEADER
-
+/*-------------HEADER------------*/
 .header {
   overflow: hidden;
 }
 
 .main-page {
   visibility: hidden;
-  padding-top: 15%; //review this prop
+  padding-top: 15%;
   background: url(../img/mobile_background.jpg) no-repeat;
   background-size: cover; 
   position: relative;
   transition: left 1s;
   left: 0;
+}
   
-  .blockquote {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    overflow: hidden;
-    max-height: 70%;
-    //without overflow and max-height, script doesn't recognize overflow event
+.blockquote {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  overflow: hidden;
+  max-height: 70%;
+  //without overflow and max-height, script doesn't recognize overflow event
+}
 
-    .quoteText {
-      font-size: 2em; 
-      color: transparent;
-    // margin: 0;
-    }
-    .quoteAuthor {
-      font-size: 1.5em; 
-      text-align: center;
-      color: white;
-      opacity: 0;
-    }
-  }
-  
-  .nav {
-    height: 20%;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    padding-left: 10%;
-  }
+.quoteText {
+  font-size: 1.5em; 
+  color: transparent;
+}
 
-  .mobile-menu-btn {
-    .centerV;
-    width: 3em; 
-    height: 3em;
-    background: tomato;
-  }
+.quoteAuthor {
+  font-size: 1em; 
+  text-align: center;
+  color: white;
+  opacity: 0;
+}
   
-  .mobile-logo {
-    .centerVH;
-    max-width: 100%; 
-    max-height: 100%;
-   
-  }
+.nav {
+  height: 20%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding-left: 10%;
+}
+
+.mobile-menu-btn {
+  .centerV;
+  width: 3em; 
+  height: 3em;
+  background: tomato;
+}
+
+.mobile-logo {
+  .centerVH;
+  max-width: 100%; 
+  max-height: 100%;
 }
 
 .off-canvas {
   left: 70%;
 }
 
-
-// -------------BODY
+/*-------------BODY-----------*/
 .main {
   display: none;
   height: 100%;
   padding: 5%;
-
-  img {
-    max-width: 100%;
-    max-height: 30%;
-  }
 }
 
+.main img {
+  max-width: 100%;
+  max-height: 30%;
+}
+
+
+
+
 /*************** DESKTOP **************/
-@media (min-width: 700px) {
-  
-  .header {
-    position: relative; 
-  }
-  
-  .main-page {
-    padding-top: 8%; 
-  }
 
-  .nav {
-    display: none; 
-  }
-  
-  .offside-mobile-menu {
-    visibility: visible;
-
-    width: 100%;
-    height: 20%;
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: auto;
-    right: auto;
-    padding: 0;
-    margin: 0;
-    z-index: 1;
-    background: grey; //set variable for background;
-
-    ul {
-      text-align: justify; // set equal space between LI;
-      list-style: none;
-      height: 100%;
-      width: 100%;
-      padding: 0;
-    }
-
-    ul:after {
-      content: "";
-      width: 100%;
-      display: inline-block;
-    }
-
-    li {
-      display: inline-block;
-      height: 50%;
-      width: 10%;
-      .border;
-    }
-
-    a {
-      width: 100%; 
-      height: 100%;
-      display: block;
-      font-size: 1.5em;
-      border-bottom: none;
-      position: relative;
-    }
-
-    span {
-      .centerV; //need to be replaced for horizontal centering;
-    }
-  }
+@media (min-width: 850px) {
+  @import "desktopMedia.less";
 }

@@ -1,4 +1,4 @@
-.offside-mobile-menu {
+.menu {
   visibility: hidden;
   width: 70%;
   height: 100%;
@@ -12,16 +12,16 @@
   z-index: 0;
   background: lightgrey;
 }
-.offside-mobile-menu ul {
+.menu ul {
   list-style: none;
   height: 100%;
 }
-.offside-mobile-menu li {
+.menu li {
   height: 10%;
   width: 90%;
   text-align: left;
 }
-.offside-mobile-menu a {
+.menu a {
   width: 100%;
   height: 100%;
   display: inline-block;
@@ -29,7 +29,7 @@
   border-bottom: 1px solid black;
   position: relative;
 }
-.offside-mobile-menu span {
+.menu span {
   margin: 0;
   position: absolute;
   top: 50%;
@@ -75,6 +75,7 @@ body,
   opacity: 0;
   z-index: 1;
 }
+/*-------------HEADER------------*/
 .header {
   overflow: hidden;
 }
@@ -87,31 +88,31 @@ body,
   transition: left 1s;
   left: 0;
 }
-.main-page .blockquote {
+.blockquote {
   position: relative;
   z-index: 2;
   text-align: center;
   overflow: hidden;
   max-height: 70%;
 }
-.main-page .blockquote .quoteText {
-  font-size: 2em;
+.quoteText {
+  font-size: 1.5em;
   color: transparent;
 }
-.main-page .blockquote .quoteAuthor {
-  font-size: 1.5em;
+.quoteAuthor {
+  font-size: 1em;
   text-align: center;
   color: white;
   opacity: 0;
 }
-.main-page .nav {
+.nav {
   height: 20%;
   width: 100%;
   position: absolute;
   bottom: 0;
   padding-left: 10%;
 }
-.main-page .mobile-menu-btn {
+.mobile-menu-btn {
   margin: 0;
   position: absolute;
   top: 50%;
@@ -120,7 +121,7 @@ body,
   height: 3em;
   background: tomato;
 }
-.main-page .mobile-logo {
+.mobile-logo {
   position: absolute;
   left: 0;
   right: 0;
@@ -133,6 +134,7 @@ body,
 .off-canvas {
   left: 70%;
 }
+/*-------------BODY-----------*/
 .main {
   display: none;
   height: 100%;
@@ -143,18 +145,41 @@ body,
   max-height: 30%;
 }
 /*************** DESKTOP **************/
-@media (min-width: 700px) {
+@media (min-width: 850px) {
   .header {
     position: relative;
   }
   .main-page {
+    visibility: hidden;
     padding-top: 8%;
+    background: url(../img/desktop_background.jpg) no-repeat;
+    background-size: cover;
+    transition: none;
+    left: auto;
+  }
+  .quoteText {
+    font-size: 2em;
+  }
+  .quoteAuthor {
+    font-size: 1.5em;
+    font-style: italic;
   }
   .nav {
     display: none;
   }
-  .offside-mobile-menu {
-    visibility: visible;
+  /*-------------body-----------*/
+  .main {
+    text-align: center;
+    display: none;
+    height: 100%;
+    padding: 1%;
+  }
+  .main img {
+    max-width: 100%;
+    max-height: 50%;
+  }
+  .menu {
+    visibility: none;
     width: 100%;
     height: 20%;
     position: absolute;
@@ -162,41 +187,51 @@ body,
     bottom: 0;
     left: auto;
     right: auto;
-    padding: 0;
-    margin: 0;
+    margin: auto;
     z-index: 1;
-    background: grey;
+    background: none;
   }
-  .offside-mobile-menu ul {
+  .menu ul {
     text-align: justify;
-    list-style: none;
     height: 100%;
     width: 100%;
-    padding: 0;
+    padding: 10px;
+    margin: 0;
   }
-  .offside-mobile-menu ul:after {
+  .menu ul:after {
     content: "";
     width: 100%;
     display: inline-block;
   }
-  .offside-mobile-menu li {
+  .menu li {
     display: inline-block;
     height: 50%;
-    width: 10%;
-    border: 1px solid black;
+    max-width: 12%;
+    position: relative;
+    top: 25%;
   }
-  .offside-mobile-menu a {
+  .menu li.logo {
+    font-size: 2em;
+    background: black;
+    max-width: 25%;
+    top: 0;
+  }
+  .menu a {
     width: 100%;
     height: 100%;
-    display: block;
-    font-size: 1.5em;
+    font-size: 1.2em;
     border-bottom: none;
-    position: relative;
+    position: static;
+    display: table;
+    text-decoration: none;
+    color: white;
+    border: 1px solid black;
   }
-  .offside-mobile-menu span {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
+  .menu span {
+    position: static;
+    transform: none;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
   }
 }

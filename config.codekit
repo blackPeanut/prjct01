@@ -22,7 +22,7 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/css\/canvasMenuTest.less": {
+	"\/css\/desktopMedia.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
@@ -30,8 +30,8 @@
 		"ieCompatibility": 1,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/css\/canvasMenuTest.less",
-		"outputAbbreviatedPath": "\/css\/canvasMenuTest.css",
+		"inputAbbreviatedPath": "\/css\/desktopMedia.less",
+		"outputAbbreviatedPath": "\/css\/desktopMedia.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -90,6 +90,26 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/css\/pageMenu.less": {
+		"allowInsecureImports": 0,
+		"createSourceMap": 0,
+		"disableJavascript": 0,
+		"fileType": 1,
+		"ieCompatibility": 1,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/pageMenu.less",
+		"outputAbbreviatedPath": "\/css\/pageMenu.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"relativeURLS": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"strictImports": 0,
+		"strictMath": 0,
+		"strictUnits": 0
 		},
 	"\/doc\/css.md": {
 		"criticStyle": 0,
