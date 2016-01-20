@@ -2,7 +2,7 @@
   visibility: hidden;
   width: 70%;
   height: 100%;
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -20,6 +20,9 @@
   height: 10%;
   width: 90%;
   text-align: left;
+}
+.menu li.logo {
+  display: none;
 }
 .menu a {
   width: 100%;
@@ -211,6 +214,7 @@ body,
     top: 25%;
   }
   .menu li.logo {
+    display: inline-block;
     font-size: 2em;
     background: black;
     max-width: 25%;
