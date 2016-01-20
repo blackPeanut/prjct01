@@ -98,6 +98,7 @@ window.onload = function () {
         slideUp(".disabler", function () {
             showInvisibles(".main");
             showInvisibles(".footer");
+            showInvisibles(".menu");
         }, 100);
     }
 
