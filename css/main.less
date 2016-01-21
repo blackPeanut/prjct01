@@ -1,4 +1,3 @@
-@import "pageMenu.less";
 
 //Z indexes - disabler: 1, blockquote: 2
 .border {border: 1px solid black;}
@@ -15,93 +14,15 @@ body,
   height: 100%;
 }
 
-.disabler {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background: black;
-  opacity: 0;
-  z-index: 1;
-}
-
-/*-------------HEADER------------*/
-.header {
-  overflow: hidden;
-}
-
-.main-page {
-  visibility: hidden;
-  padding-top: 15%;
-  background: url(../img/mobile_background.jpg) no-repeat;
-  background-size: cover; 
-  position: relative;
-  transition: left 1s;
-  left: 0;
-}
-  
-.blockquote {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  overflow: hidden;
-  max-height: 70%;
-  //without overflow and max-height, script doesn't recognize overflow event
-}
-
-.quoteText {
-  font-size: 1.5em; 
-  color: transparent;
-}
-
-.quoteAuthor {
-  font-size: 1em; 
-  text-align: center;
-  color: white;
-  opacity: 0;
-}
-  
-.nav {
-  height: 20%;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  padding-left: 10%;
-}
-
-.mobile-menu-btn {
-  .centerV;
-  width: 3em; 
-  height: 3em;
-  background: tomato;
-}
-
-.mobile-logo {
-  .centerVH;
-  max-width: 100%; 
-  max-height: 100%;
-}
-
-.off-canvas {
-  left: 70%;
-}
-
-/*-------------BODY-----------*/
-.main {
-  display: none;
-  height: 100%;
-  padding: 5%;
-}
-
-.main img {
-  max-width: 100%;
-  max-height: 30%;
-}
 
 
+//elements should be hidden, use only for debug purposes
+@vis: hidden; //visibility
+@dis: none; //display;
+@col: transparent; //color
+@opa: 0; //opacity
 
-
-/*************** DESKTOP **************/
-
+@import "mobileMain.less";
 @media (min-width: 850px) {
-  @import "desktopMedia.less";
+  @import "desktopMain.less";
 }

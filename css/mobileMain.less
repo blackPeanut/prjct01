@@ -1,4 +1,6 @@
-//mobileMain
+.header {
+  position: relative;
+}
 
 .disabler {
   width: 100%;
@@ -15,10 +17,10 @@
 }
 
 .main-page {
-  visibility: @vis;
   padding-top: 15%;
-  background: url(../img/mobile_background.jpg) no-repeat;
-  background-size: cover; 
+  visibility: @vis;
+  background: url("../img/mobile_background.jpg") no-repeat;
+  background-size: cover;
   position: relative;
   transition: left 1s;
   left: 0;
@@ -42,7 +44,7 @@
   font-size: 1em; 
   text-align: center;
   color: white;
-  //opacity: 0;
+  opacity: @opa;
 }
   
 .nav {
@@ -66,12 +68,12 @@
   max-height: 100%;
 }
 
+//off canvas menu
 .off-canvas {
   left: 70%;
 }
 
-//off canvas menu
-@menuColor: lightgrey;
+// THIS IS MAIN FILE FOR THIS MENU, SHOULD BE REMOVED FROM ALL OTHER FILES
 
 .menu {
   visibility: hidden;
@@ -86,7 +88,7 @@
   padding: 0;
   margin: 0;
   z-index: 0;
-  background: @menuColor;
+  background: lightgray;
 
   ul {
     list-style: none;
@@ -119,9 +121,10 @@
 
 /*-------------BODY-----------*/
 .main {
-  display: block;
+  display: @dis;
   height: 100%;
   padding: 5%;
+  text-align: center;
 }
 
 .main img {

@@ -28,7 +28,7 @@
 		"disableJavascript": 0,
 		"fileType": 1,
 		"ieCompatibility": 1,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/desktopMain.less",
 		"outputAbbreviatedPath": "\/css\/desktopMain.css",
@@ -42,16 +42,16 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/css\/desktopMedia.less": {
+	"\/css\/EMPTYdesktopTemplate.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
 		"fileType": 1,
 		"ieCompatibility": 1,
-		"ignore": 1,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/css\/desktopMedia.less",
-		"outputAbbreviatedPath": "\/css\/desktopMedia.css",
+		"inputAbbreviatedPath": "\/css\/EMPTYdesktopTemplate.less",
+		"outputAbbreviatedPath": "\/css\/EMPTYdesktopTemplate.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -62,7 +62,7 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/css\/desktopTemplate.less": {
+	"\/css\/EMPTYmobileTemplate.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
@@ -70,8 +70,8 @@
 		"ieCompatibility": 1,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/css\/desktopTemplate.less",
-		"outputAbbreviatedPath": "\/css\/desktopTemplate.css",
+		"inputAbbreviatedPath": "\/css\/EMPTYmobileTemplate.less",
+		"outputAbbreviatedPath": "\/css\/EMPTYmobileTemplate.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -111,33 +111,13 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/css\/min\/typer-min.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/css\/min\/typer-min.js",
-		"outputAbbreviatedPath": "\/css\/min\/min\/typer-min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 0
-		},
-	"\/css\/mobileMain.css": {
-		"fileType": 16,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/css\/mobileMain.css",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/css\/mobileMain.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
 		"fileType": 1,
 		"ieCompatibility": 1,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/mobileMain.less",
 		"outputAbbreviatedPath": "\/css\/mobileMain.css",
@@ -151,25 +131,14 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/css\/mobileTemplate.less": {
-		"allowInsecureImports": 0,
-		"createSourceMap": 0,
-		"disableJavascript": 0,
-		"fileType": 1,
-		"ieCompatibility": 1,
-		"ignore": 0,
+	"\/css\/mobileTemplate.css": {
+		"fileType": 16,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/css\/mobileTemplate.less",
-		"outputAbbreviatedPath": "\/css\/mobileTemplate.css",
+		"inputAbbreviatedPath": "\/css\/mobileTemplate.css",
+		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"strictImports": 0,
-		"strictMath": 0,
-		"strictUnits": 0
+		"outputPathIsSetByUser": 0
 		},
 	"\/css\/normalize.css": {
 		"fileType": 16,
@@ -186,7 +155,7 @@
 		"disableJavascript": 0,
 		"fileType": 1,
 		"ieCompatibility": 1,
-		"ignore": 1,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/pageMenu.less",
 		"outputAbbreviatedPath": "\/css\/pageMenu.css",
