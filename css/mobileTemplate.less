@@ -34,8 +34,13 @@
 }
 
 // mobile menu
-.menu-tmpl {
-  visibility: hidden;
+.menu-dsk-tmpl {
+  display: none;
+}
+
+.off-canvas-menu {
+  visibility: visible;
+  overflow: auto;
 
   width: 70%;
   height: 100%;
@@ -48,7 +53,7 @@
   margin: 0;
   z-index: 0;
   background: lightgrey;
-
+  
   ul {
     list-style: none;
     height: 100%;
@@ -58,6 +63,10 @@
     height: 10%;
     width: 90%;
     text-align: left;
+  }
+
+  li.logo {
+    display: none; 
   }
 
   a {
