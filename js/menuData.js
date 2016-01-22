@@ -13,14 +13,13 @@ var menuData = {
       "authorName": "Lewis Carrrol"
     }, 
     {
-      "route": "", 
-      "class": "desktop-logo", 
+      "route": "index", 
+      "class": "logo", 
       "authorName": "LogoTest"
     }, 
     {
       "route": "julesverne", 
-      "authorName": 
-      "Jules Verne"
+      "authorName": "Jules Verne"
     }, 
     {
       "route": "hgwells", 

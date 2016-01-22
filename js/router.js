@@ -7,27 +7,28 @@ var renderMyPrettyAuthor = function (authorId) {
 };
 */
 
-function renderMyPage(authorId) {
-  debugger;
-  var contentTemplate = Hogan.compile(document.querySelector("#pageTemplate").innerHTML); 
+function renderPageTmpl(authorId) {
+  //debugger;
+  var page_tmpl = Hogan.compile(document.querySelector("#page_tmpl").innerHTML); 
   var objectNumber = parseInt(authorId.replace(/\D/g, "")) - 1; //make start author ID from #1
-  var contentOutput = contentTemplate.render(templateData["authors"][objectNumber][authorId]);
+  var pageTmplOutput = page_tmpl.render(templateData["authors"][objectNumber][authorId]);
+  document.querySelector("body").innerHTML = pageTmplOutput;
   
-  var menuTemplate = Hogan.compile(document.querySelector("#pageMenuTemplate").innerHTML);
-  var menuOutput = menuTemplate.render(menuData);
-  document.querySelector("body").innerHTML = menuOutput; //input area
-  document.querySelector(".wrapper").innerHTML += contentOutput; //input area
+  var menu_tmpl = Hogan.compile(document.querySelector("#menu_tmpl").innerHTML);
+  var menuTmplOutput = menu_tmpl.render(menuData);
+  document.querySelector(".off-canvas-menu").innerHTML = menuTmplOutput;
+  document.querySelector(".menu-dsk-tmpl").innerHTML = menuTmplOutput;
 }
 
 var routes = {
-  "/jacklondon": function() {renderMyPage("id1")},
-  "/frankbaum": function() {renderMyPage("id2")},
-  "/lewiscarroll": function() {renderMyPage("id3")},
+  "/jacklondon": function() {renderPageTmpl("id1")},
+  "/frankbaum": function() {renderPageTmpl("id2")},
+  "/lewiscarroll": function() {renderPageTmpl("id3")},
   //"/home": renderMyHomepage("id0"),
-  "/julesverne": function() {renderMyPrettyAuthor("id4")},
-  "/hgwells": function() {renderMyPrettyAuthor("id5")},
-  "/hermanmelville": function () {renderMyPrettyAuthor("id6")}
+  "/julesverne": function() {renderPageTmpl("id4")},
+  "/hgwells": function() {renderPageTmpl("id5")},
+  "/hermanmelville": function () {renderPageTmpl("id6")}
 };
 
 var router = Router(routes);
-//router.init();
+router.init();
