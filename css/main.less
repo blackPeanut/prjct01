@@ -10,7 +10,9 @@ html,
 body,
 .wrapper,
 .header,
-.main-page {
+.main-page,
+.wrapper-tmpl,
+.offside-section-tmpl {
   height: 100%;
 }
 
@@ -23,6 +25,8 @@ body,
 @opa: 0; //opacity
 
 @import "mobileMain.less";
+@import "mobileTemplate.less";
 @media (min-width: 850px) {
   @import "desktopMain.less";
+  @import "desktopTemplate.less";
 }

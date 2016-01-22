@@ -27,7 +27,9 @@ html,
 body,
 .wrapper,
 .header,
-.main-page {
+.main-page,
+.wrapper-tmpl,
+.offside-section-tmpl {
   height: 100%;
 }
 .header {
@@ -70,6 +72,7 @@ body,
   text-align: center;
   color: white;
   opacity: 0;
+  font-style: italic;
 }
 .nav {
   height: 20%;
@@ -133,6 +136,7 @@ body,
   font-size: 1.5em;
   border-bottom: 1px solid black;
   position: relative;
+  color: white;
 }
 .menu span {
   margin: 0;
@@ -151,13 +155,93 @@ body,
   max-width: 100%;
   max-height: 30%;
 }
+.offside-section-tmpl {
+  overflow: auto;
+  background: url("../img/mobile_pattern.png");
+  position: relative;
+}
+.header-tmpl {
+  height: 20%;
+  position: relative;
+}
+.header-tmpl .nav-tmpl {
+  height: 100%;
+  width: 100%;
+  padding-left: 10%;
+}
+.header-tmpl .mobile-menu-btn {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 3em;
+  height: 3em;
+  background: tomato;
+}
+.header-tmpl .mobile-logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+.off-canvas {
+  left: 70%;
+}
+.menu-tmpl {
+  visibility: hidden;
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  z-index: 0;
+  background: lightgrey;
+}
+.menu-tmpl ul {
+  list-style: none;
+  height: 100%;
+}
+.menu-tmpl li {
+  height: 10%;
+  width: 90%;
+  text-align: left;
+}
+.menu-tmpl a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  font-size: 1.5em;
+  border-bottom: 1px solid black;
+  position: relative;
+}
+.menu-tmpl span {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.main-tmpl {
+  padding: 5%;
+  text-align: center;
+}
+.main-tmpl h1 {
+  text-align: center;
+}
+.main-tmpl img {
+  max-width: 100%;
+  max-height: 30%;
+}
 @media (min-width: 850px) {
   .main-page {
-    visibility: hidden;
     padding-top: 8%;
-    background: none;
-    transition: none;
-    left: auto;
     background: url("../img/desktop_background.jpg") no-repeat;
     background-size: cover;
   }
@@ -166,15 +250,14 @@ body,
   }
   .quoteAuthor {
     font-size: 1.5em;
-    font-style: italic;
   }
   .nav {
     display: none;
   }
   /*-------------body-----------*/
   .main {
-    text-align: center;
     display: none;
+    text-align: center;
     height: 100%;
     padding: 1%;
   }
@@ -186,7 +269,6 @@ body,
     visibility: hidden;
     width: 100%;
     height: 20%;
-    position: absolute;
     top: auto;
     bottom: 0;
     left: auto;
@@ -222,6 +304,93 @@ body,
     top: 0;
   }
   .menu a {
+    font-size: 1.2em;
+    border-bottom: none;
+    position: static;
+    display: table;
+    text-decoration: none;
+    border: 1px solid black;
+  }
+  .menu a:active {
+    background: yellow;
+  }
+  .menu span {
+    position: static;
+    transform: none;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .wrapper-tmpl {
+    background: url("../img/mobile_pattern.png");
+    overflow: auto;
+  }
+  .main-tmpl {
+    padding-top: 1%;
+  }
+  h1 {
+    text-align: center;
+  }
+  img {
+    max-width: 100%;
+    max-height: 30%;
+  }
+  .nav-tmpl {
+    display: none;
+  }
+  /*-------------body-----------*/
+  .main-tmpl {
+    text-align: center;
+    display: block;
+    height: 80%;
+    padding: 1%;
+  }
+  .main img {
+    max-width: 100%;
+    max-height: 50%;
+  }
+  .menu-tmpl {
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin: auto;
+    z-index: 1;
+    background: none;
+  }
+  .menu-bottom {
+    bottom: 0;
+  }
+  .menu-tmpl ul {
+    text-align: justify;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+  }
+  .menu-tmpl ul:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+  }
+  .menu-tmpl li {
+    display: inline-block;
+    height: 50%;
+    max-width: 12%;
+    position: relative;
+    top: 25%;
+  }
+  .menu-tmpl li.logo {
+    font-size: 2em;
+    background: black;
+    max-width: 25%;
+    top: 0;
+  }
+  .menu-tmpl a {
     width: 100%;
     height: 100%;
     font-size: 1.2em;
@@ -229,10 +398,16 @@ body,
     position: static;
     display: table;
     text-decoration: none;
-    color: white;
+    color: black;
     border: 1px solid black;
   }
-  .menu span {
+  .menu-tmpl .logo a {
+    color: white;
+  }
+  .menu-tmpl a:active {
+    background: yellow;
+  }
+  .menu-tmpl span {
     position: static;
     transform: none;
     text-align: center;

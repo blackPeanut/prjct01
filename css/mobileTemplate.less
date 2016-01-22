@@ -1,38 +1,15 @@
-//Z indexes - disabler: 1, blockquote: 2
-
-.border {border: 1px solid black;}
-.centerV {margin: 0; position: absolute; top: 50%; transform: translate(0, -50%);}
-.centerVH {position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto;}
-
-html {box-sizing: border-box;}
-*, *:before, *:after {box-sizing: inherit;}
-
-
-// Wrapper<  >offside-section >header >nav +main
-
-html,
-body,
-.wrapper-tmpl,
 .offside-section-tmpl {
-  height: 100%;
-}
-
-.wrapper-tmpl {
   overflow: auto;
   background: url("../img/mobile_pattern.png");
-}
-
-.offside-section-tmpl {
-  overflow: auto;
+  position: relative;
 }
 
 // -------------HEADER
-
 .header-tmpl {
   height: 20%;
   position: relative;
 
-  .nav {
+  .nav-tmpl {
     height: 100%;
     width: 100%;
     padding-left: 10%;
@@ -57,7 +34,7 @@ body,
 }
 
 // mobile menu
-.menu {
+.menu-tmpl {
   visibility: hidden;
 
   width: 70%;
@@ -109,8 +86,4 @@ body,
     max-width: 100%;
     max-height: 30%;
   }
-}
-
-@media (min-width: 850px) {
-  @import "desktopTemplate.less";
 }

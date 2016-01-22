@@ -42,36 +42,25 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/css\/EMPTYdesktopTemplate.less": {
-		"allowInsecureImports": 0,
-		"createSourceMap": 0,
-		"disableJavascript": 0,
-		"fileType": 1,
-		"ieCompatibility": 1,
-		"ignore": 0,
+	"\/css\/desktopTemplate.css": {
+		"fileType": 16,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/css\/EMPTYdesktopTemplate.less",
-		"outputAbbreviatedPath": "\/css\/EMPTYdesktopTemplate.css",
+		"inputAbbreviatedPath": "\/css\/desktopTemplate.css",
+		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"strictImports": 0,
-		"strictMath": 0,
-		"strictUnits": 0
+		"outputPathIsSetByUser": 0
 		},
-	"\/css\/EMPTYmobileTemplate.less": {
+	"\/css\/desktopTemplate.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
 		"fileType": 1,
 		"ieCompatibility": 1,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/css\/EMPTYmobileTemplate.less",
-		"outputAbbreviatedPath": "\/css\/EMPTYmobileTemplate.css",
+		"inputAbbreviatedPath": "\/css\/desktopTemplate.less",
+		"outputAbbreviatedPath": "\/css\/desktopTemplate.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -131,34 +120,16 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
-	"\/css\/mobileTemplate.css": {
-		"fileType": 16,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/css\/mobileTemplate.css",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/css\/normalize.css": {
-		"fileType": 16,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/css\/normalize.css",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/css\/pageMenu.less": {
+	"\/css\/mobileTemplate.less": {
 		"allowInsecureImports": 0,
 		"createSourceMap": 0,
 		"disableJavascript": 0,
 		"fileType": 1,
 		"ieCompatibility": 1,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/css\/pageMenu.less",
-		"outputAbbreviatedPath": "\/css\/pageMenu.css",
+		"inputAbbreviatedPath": "\/css\/mobileTemplate.less",
+		"outputAbbreviatedPath": "\/css\/mobileTemplate.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -168,6 +139,15 @@
 		"strictImports": 0,
 		"strictMath": 0,
 		"strictUnits": 0
+		},
+	"\/css\/normalize.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/normalize.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
 		},
 	"\/doc\/css.md": {
 		"criticStyle": 0,
@@ -403,6 +383,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/component.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 52950,
+		"inputAbbreviatedPath": "\/img\/component.png",
+		"outputAbbreviatedPath": "\/img\/component.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/desktop_background.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -410,6 +401,17 @@
 		"initialSize": 183889,
 		"inputAbbreviatedPath": "\/img\/desktop_background.jpg",
 		"outputAbbreviatedPath": "\/img\/desktop_background.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/desktop_pattern.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 29274,
+		"inputAbbreviatedPath": "\/img\/desktop_pattern.png",
+		"outputAbbreviatedPath": "\/img\/desktop_pattern.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -447,6 +449,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/mobile_pattern.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3866,
+		"inputAbbreviatedPath": "\/img\/mobile_pattern.png",
+		"outputAbbreviatedPath": "\/img\/mobile_pattern.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/paragraph-image.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -454,17 +467,6 @@
 		"initialSize": 556965,
 		"inputAbbreviatedPath": "\/img\/paragraph-image.png",
 		"outputAbbreviatedPath": "\/img\/paragraph-image.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/pattern.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 29274,
-		"inputAbbreviatedPath": "\/img\/pattern.png",
-		"outputAbbreviatedPath": "\/img\/pattern.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -706,6 +708,24 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
+		},
+	"\/template.html": {
+		"fileType": 8192,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/template.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/template.kit": {
+		"fileType": 2048,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/template.kit",
+		"outputAbbreviatedPath": "\/template.html",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
 		},
 	"\/tile-wide.png": {
 		"fileType": 32768,
