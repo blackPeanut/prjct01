@@ -162,48 +162,42 @@ window.onload = function () {
         return elFont / rootFont;
     }
    
-   // START DIS !!!11111
    
+   
+
+
+
+   // START HERE ============================================================
+if (document.querySelector(".wrapper")) {
     prepareText();
     adjustScreen();
+    createMenuFromTmpl();
     fadeIn(".disabler", 1000, function () {
       showInvisibles(".main-page");//ok 
       printQuote();
     }, 300);
-    //split on parts?????
-// TEMPLATING, DISABLED 17.01.2015   
-/*
+};
+
    function createMenuFromTmpl() {
-      var desktopTemplate = Hogan.compile(document.querySelector("#menuTemplate").innerHTML);
-      var mobileTemplate = Hogan.compile(document.querySelector("#mobileMenuTemplate").innerHTML);
-      var outputDesktop = desktopTemplate.render(menuData);
-      var outputMobile = mobileTemplate.render(menuData);
-      document.querySelector(".desktop-menu-column").innerHTML = outputDesktop;
-      document.querySelector("menu").innerHTML = outputMobile;
+      var menu_tmpl = Hogan.compile(document.querySelector("#menu_tmpl").innerHTML) 
+      var output = menu_tmpl.render(menuData);
+      document.querySelector(".menu").innerHTML = output;
   }
-*/
-/*
-    setTimeout(function () {
-	//renderTemplatesInDom - test feature, should be somewhere else, but now import doesn't load on time;
-      renderTemplatesInDOM();
-      var data = menuData;
-      var template = Hogan.compile(document.querySelector("#menuTemplate").innerHTML);
-      var output = template.render(data);
-      document.querySelector(".mainNav").innerHTML = output;
-    }, 10000);
-*/
-/*
+
 var flag = false;
-var toggle = document.querySelector(".mobile-menu-btn").addEventListener("click", function () {
+document.querySelector(".mobile-menu-btn").addEventListener("click", function () {
         var container = document.querySelector(".header-container");
-        var menu = document.querySelector("menu");
+        var mainPage = document.querySelector(".main-page");
+        var contentPage = document.querySelector(".offside-section-tmpl");
 
         if (flag) {
+            debugger;
             menu.style.visibility = "hidden";
             container.style.left = "0";
             flag = false;
         }
         else {
+            debugger;
             container.style.position = "relative";
             menu.style.visibility = "visible";
             container.style.left = "70%";
@@ -211,5 +205,4 @@ var toggle = document.querySelector(".mobile-menu-btn").addEventListener("click"
         }
 
 }, false);
-*/
 };
