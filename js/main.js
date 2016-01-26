@@ -6,17 +6,22 @@ LINE 73! HOGAN Compiles
 window.onload = function () {
     "use strict";
 
-    function showInvisibles(element) {
-        var
-            el = getEl(element),
-            style = window.getComputedStyle(el, null);
+    function showInvisibles() {
+        var 
+            arr = Array.apply(null, arguments);
+            
+        arr.forEach(function (element) {
+          var
+              el = getEl(element),
+              style = window.getComputedStyle(el, null);
 
-        if (style.visibility === "hidden") {
-            el.style.visibility = "visible";
-        } else if (style.display === "none") {
-            el.style.display = "block";
-            console.log(el + " display value changed to 'block'");
-        }
+          if (style.visibility === "hidden") {
+              el.style.visibility = "visible";
+          } else if (style.display === "none") {
+              el.style.display = "block";
+              console.log(el + " display value changed to 'block'");
+          }
+        });
     }
 
     function printQuote() {
@@ -34,7 +39,7 @@ window.onload = function () {
                 currentSpan = 0,
                 interval;
 
-            interval = setInterval(function () {
+            interval = window.setInterval(function () {
                 spans[currentSpan].style.color = "white";
                 currentSpan += 1;
                 if (currentSpan >= spans.length) {
@@ -65,15 +70,13 @@ window.onload = function () {
 
     function closeHeaderDisabler() {
         slideUp(".disabler", function () {
-            showInvisibles(".main");
-            showInvisibles(".footer");
-            showInvisibles(".menu");
+            showInvisibles(".main", ".footer", ".menu");
             fadeIn(".menu", 1000);
         }, 100);
     }
 
     /*------------------------------------------------------
-    SERVICE FUNCTIONS
+    REUSABLE FUNCTIONS
     ------------------------------------------------------*/
 
     function slideUp(element, callback, callbackTimeout) {
@@ -83,7 +86,7 @@ window.onload = function () {
             cbTimeout = callbackTimeout ? callbackTimeout : 1,
             interval;
 
-        interval = setInterval(function () {
+        interval = window.setInterval(function () {
             elemHeight = elemHeight - 3; elem.style.height = elemHeight + "px";
             if (elemHeight <= 4) {
                 elem.style.height = 0 + "px";
@@ -95,13 +98,14 @@ window.onload = function () {
         }, 1);
     }
 
+
     function fadeIn(element, speed, callback, cbTimeout) {
         var
             el = getEl(element),
             opacityValue = 0,
             interval;
     
-        interval = setInterval(function () {
+        interval = window.setInterval(function () {
             opacityValue += 0.02;
             el.style.opacity = opacityValue;
 
@@ -118,7 +122,7 @@ window.onload = function () {
     function convertFontToEm(el) {
         var
             elFont = parseInt(window.getComputedStyle(getEl(el), null).fontSize),//, 10),
-            rootFont = parseInt(window.getComputedStyle(getEl("body"), null).fontSize)//, 10);
+            rootFont = parseInt(window.getComputedStyle(body, null).fontSize)//, 10);
             var fontSize = elFont / rootFont;
 
         return elFont / rootFont;
@@ -147,9 +151,8 @@ window.onload = function () {
 
     //rendering random quote & menu
     var
-        blockquote = getEl(".blockquote"),
-        quoteText = getEl(".quoteText"),
-        quoteAuthor = getEl(".quoteAuthor"),
+        body = getEl("body"), 
+
 
         quote_tmpl = Hogan.compile(document.querySelector("#quote_tmpl").innerHTML),
         menu_tmpl = Hogan.compile(document.querySelector("#menu_tmpl").innerHTML),
@@ -157,11 +160,15 @@ window.onload = function () {
         quoteTmplOutput = quote_tmpl.render(data.quotes[Math.floor(Math.random() * data.quotes.length)]),
         menuTmplOutput = menu_tmpl.render(data);
 
-        getEl(".blockquote").innerHTML = quoteTmplOutput;
-        getEl(".menu").innerHTML = menuTmplOutput;
-
+    getEl(".blockquote").innerHTML = quoteTmplOutput;
+    getEl(".menu").innerHTML = menuTmplOutput;
+    
         //adjust screen
     var
+        blockquote = getEl(".blockquote"),
+        quoteText = getEl(".quoteText"),
+        quoteAuthor = getEl(".quoteAuthor"),
+
         quoteTextFontEm = convertFontToEm(quoteText),
         quoteAuthorFontEm = convertFontToEm(quoteAuthor),
         fontProportion = quoteAuthorFontEm / quoteTextFontEm.toFixed(3);
@@ -171,17 +178,19 @@ window.onload = function () {
       quoteText.style.fontSize = quoteTextFontEm + "em";
       quoteAuthor.style.fontSize = (quoteTextFontEm * fontProportion) + "em";
     }
-
-//save body innerHTML as template; 
-    var homepage_tmpl = getEl("body").innerHTML; 
-
+      
+    //save body innerHTML as template; 
+    var homepage_tmpl = body.innerHTML; 
+    
+    /*КОЛЛБЭКИ, КОТОРЫЕ БЫЛИ В ФЕЙДИНЕ 
+    */
+    //debugger;
     fadeIn(".disabler", 1000, function () {
       showInvisibles(".main-page"); //ok 
       printQuote();
     }, 300);
 
-
-//off canvas menu slider
+// mobile menu handler;
 var flag = true;
 document.querySelector(".mobile-menu-btn").addEventListener("click", function () {
         var mainPage = document.querySelector(".main-page");
@@ -196,4 +205,44 @@ document.querySelector(".mobile-menu-btn").addEventListener("click", function ()
         }
 
 }, false);
+
+
+/* ==========================================================
+ROUTER PART  
+============================================================*/
+
+function renderPageTemplate(authorId) { 
+  //render page_tmpl (includes off canvas and desktop menu)
+  var 
+      page_tmpl = Hogan.compile(getEl("#page_tmpl").innerHTML), 
+      pageTmplOutput = page_tmpl.render(data);
+  body.innerHTML = pageTmplOutput;
+
+  //render content
+  var 
+      content_tmpl = Hogan.compile(getEl("#page_tmpl_content").innerHTML), 
+      contentTmplOutput = content_tmpl.render(data.authors[authorId]);
+  getEl(".main-tmpl").innerHTML = contentTmplOutput;
 };
+
+function renderHomePage () {
+  body.innerHTML = homepage_tmpl;
+  showInvisibles(".footer", ".main-page", ".main");
+  getEl(".quoteText").style.color = "white";
+  getEl(".quoteAuthor").style.opacity = "1";
+  getEl(".menu").style.opacity = "1";
+};
+
+var routes = {
+              "author/:authorId": function (authorId) {renderPageTemplate(authorId)},
+              "/": function () {renderHomePage()}
+};
+
+var options = {html5history: true, convert_hash_in_init: true};
+var router = Router(routes)//.configure(options);
+router.init();//("/foo");
+
+// можно создать once для запуска мейна на определенной локации, потому что при прописывании init("/") получается, что у меня при старте индекса сразу в хеш добавляет #/ и запускает триггер на данный рут. Что есть фигня, и этот триггер должен срабатывать только при возврате на главную стараницу. 
+//off canvas menu slider
+
+}; // ONLOAD 

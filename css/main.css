@@ -265,7 +265,7 @@ body,
   .main {
     display: none;
     text-align: center;
-    height: 100%;
+    height: 90%;
     padding: 1%;
   }
   .main img {
@@ -328,6 +328,17 @@ body,
     text-align: center;
     display: table-cell;
     vertical-align: middle;
+  }
+  .footer {
+    background: grey;
+    display: table;
+    width: 100%;
+    height: 10%;
+  }
+  .footer > span {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
   }
   .wrapper-tmpl {
     background: url("../img/mobile_pattern.png");
