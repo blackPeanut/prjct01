@@ -2,44 +2,14 @@
 /* 
 LINE 73! HOGAN Compiles
 */
+
 window.onload = function () {
     "use strict";
-
-    function prepareText() {
-        var
-            quoteText = getEl(".quoteText"),
-            quoteAuthor = getEl(".quoteAuthor"),
-            quoteObject = famousQuotes.getRandom();
-
-        quoteText.innerHTML = quoteObject.text;
-        quoteAuthor.innerHTML = quoteObject.author;
-    }
-
-    function adjustScreen() {
-        var
-            el = getEl(".blockquote"),
-            quoteText = getEl(".quoteText"),
-            quoteAuthor = getEl(".quoteAuthor"),
-
-            quoteTextFontEm = convertFontToEm(quoteText),
-            quoteAuthorFontEm = convertFontToEm(quoteAuthor),
-            fontProportion = quoteAuthorFontEm / quoteTextFontEm.toFixed(3);
-
-            console.log(el.clientHeight + "scrollHeight " + el.scrollHeight);
-
-        while (el.clientHeight < el.scrollHeight) {
-            quoteTextFontEm -= 0.1;
-            quoteText.style.fontSize = quoteTextFontEm + "em";
-            quoteAuthor.style.fontSize = (quoteTextFontEm * fontProportion) + "em";
-        }
-    }
 
     function showInvisibles(element) {
         var
             el = getEl(element),
             style = window.getComputedStyle(el, null);
-
-            console.log(el);
 
         if (style.visibility === "hidden") {
             el.style.visibility = "visible";
@@ -55,7 +25,6 @@ window.onload = function () {
 
         quoteText.innerHTML = _wrapStringInSpan(quoteText.innerHTML);
         _showLetterByLetter();
-
 
         // _internalFunctions
         function _showLetterByLetter() {
@@ -99,6 +68,7 @@ window.onload = function () {
             showInvisibles(".main");
             showInvisibles(".footer");
             showInvisibles(".menu");
+            fadeIn(".menu", 1000);
         }, 100);
     }
 
@@ -130,7 +100,7 @@ window.onload = function () {
             el = getEl(element),
             opacityValue = 0,
             interval;
-
+    
         interval = setInterval(function () {
             opacityValue += 0.02;
             el.style.opacity = opacityValue;
@@ -145,62 +115,83 @@ window.onload = function () {
         }, speed / 50);
     }
 
+    function convertFontToEm(el) {
+        var
+            elFont = parseInt(window.getComputedStyle(getEl(el), null).fontSize),//, 10),
+            rootFont = parseInt(window.getComputedStyle(getEl("body"), null).fontSize)//, 10);
+            var fontSize = elFont / rootFont;
+
+        return elFont / rootFont;
+    }
+   
     function getEl(el) {
         if (typeof el === "string") {
             return document.querySelector(el);
         }
         return el;
     }
-
-    function convertFontToEm(el) {
-        var
-            elFont = parseInt(window.getComputedStyle(getEl(el), null).fontSize),//, 10),
-            rootFont = parseInt(window.getComputedStyle(getEl("body"), null).fontSize)//, 10);
-            var fontSize = elFont / rootFont;
-            console.log(elFont / rootFont + "in em");
-
-        return elFont / rootFont;
-    }
-   
-   
    
 
 
 
    // START HERE ============================================================
-if (document.querySelector(".wrapper")) {
-    prepareText();
-    adjustScreen();
-    createMenuFromTmpl();
+
+   /*
+    1.Render random quote and menu
+    2.Adjust font size for display
+    3.Fade disabler in (rewrite this function in css)
+    4.Type text in
+    5. 
+    4.Slide up disabler
+   */
+
+    //rendering random quote & menu
+    var
+        blockquote = getEl(".blockquote"),
+        quoteText = getEl(".quoteText"),
+        quoteAuthor = getEl(".quoteAuthor"),
+
+        quote_tmpl = Hogan.compile(document.querySelector("#quote_tmpl").innerHTML),
+        menu_tmpl = Hogan.compile(document.querySelector("#menu_tmpl").innerHTML),
+
+        quoteTmplOutput = quote_tmpl.render(data.quotes[Math.floor(Math.random() * data.quotes.length)]),
+        menuTmplOutput = menu_tmpl.render(data);
+
+        getEl(".blockquote").innerHTML = quoteTmplOutput;
+        getEl(".menu").innerHTML = menuTmplOutput;
+
+        //adjust screen
+    var
+        quoteTextFontEm = convertFontToEm(quoteText),
+        quoteAuthorFontEm = convertFontToEm(quoteAuthor),
+        fontProportion = quoteAuthorFontEm / quoteTextFontEm.toFixed(3);
+
+    while (blockquote.clientHeight < blockquote.scrollHeight) {
+      quoteTextFontEm -= 0.1;
+      quoteText.style.fontSize = quoteTextFontEm + "em";
+      quoteAuthor.style.fontSize = (quoteTextFontEm * fontProportion) + "em";
+    }
+
+//save body innerHTML as template; 
+    var homepage_tmpl = getEl("body").innerHTML; 
+
     fadeIn(".disabler", 1000, function () {
-      showInvisibles(".main-page");//ok 
+      showInvisibles(".main-page"); //ok 
       printQuote();
     }, 300);
-};
 
-   function createMenuFromTmpl() {
-      var menu_tmpl = Hogan.compile(document.querySelector("#menu_tmpl").innerHTML) 
-      var output = menu_tmpl.render(menuData);
-      document.querySelector(".menu").innerHTML = output;
-  }
 
-var flag = false;
+//off canvas menu slider
+var flag = true;
 document.querySelector(".mobile-menu-btn").addEventListener("click", function () {
-        var container = document.querySelector(".header-container");
         var mainPage = document.querySelector(".main-page");
-        var contentPage = document.querySelector(".offside-section-tmpl");
 
         if (flag) {
-            debugger;
-            menu.style.visibility = "hidden";
-            container.style.left = "0";
+            mainPage.className += " off-canvas";
             flag = false;
         }
         else {
-            debugger;
-            container.style.position = "relative";
-            menu.style.visibility = "visible";
-            container.style.left = "70%";
+            mainPage.className = "main-page";
             flag = true;
         }
 

@@ -64,7 +64,7 @@ body,
   max-height: 70%;
 }
 .quoteText {
-  font-size: 1.5em;
+  font-size: 1.4em;
   color: transparent;
 }
 .quoteAuthor {
@@ -273,7 +273,8 @@ body,
     max-height: 50%;
   }
   .menu {
-    visibility: hidden;
+    visibility: visible;
+    opacity: 0;
     width: 100%;
     height: 20%;
     top: auto;

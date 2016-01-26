@@ -2,13 +2,9 @@
       <div class="wrapper-tmpl">
         <menu class="off-canvas-menu"><!-- main styles will be used -->
           <ul>
-            <li><a href="#"><span>testItem1</span></a></li>
-            <li><a href="#"><span>testItem2</span></a></li>
-            <li><a href="#"><span>testItem3</span></a></li>
-            <li class="logo"><a href="#"><span>Logo</span></a></li>
-            <li><a href="#"><span>testItem4</span></a></li>
-            <li><a href="#"><span>testItem5</span></a></li>
-            <li><a href="#"><span>testItem6</span></a></li>
+            {{#menuData}}
+            <li class="{{class}}"><a href="#{{route}}"><span>{{authorName}}</span></a></li>
+            {{/menuData}}
           </ul>
         </menu>
 
@@ -16,13 +12,9 @@
         <header class="header-tmpl">
         <menu class="menu-dsk-tmpl"><!-- main styles will be used -->
           <ul>
-            <li><a href="#"><span>testItem1</span></a></li>
-            <li><a href="#"><span>testItem2</span></a></li>
-            <li><a href="#"><span>testItem3</span></a></li>
-            <li class="logo"><a href="#"><span>Logo</span></a></li>
-            <li><a href="#"><span>testItem4</span></a></li>
-            <li><a href="#"><span>testItem5</span></a></li>
-            <li><a href="#"><span>testItem6</span></a></li>
+            {{#menuData}}
+            <li class="{{class}}"><a href="#{{route}}"><span>{{authorName}}</span></a></li>
+            {{/menuData}}
           </ul>
         </menu>
           <nav class="nav-tmpl"> <!-- main styles will be used -->
@@ -38,4 +30,15 @@
           <footer class="footer"></footer>
         </div><!--offside section-->
       </div><!--wrapper-->
+</script>
+
+<script type="text/html" id="page_tmpl_content">
+    <h1>{{name}}</h1>
+    <img src="./img/authors/{{photo}}.jpg" alt="content-image">
+    <p>{{lead}}</p>
+</script>
+
+<script type="text/html" id="quote_tmpl">
+  <p class="quoteText">{{text}}</p>
+  <footer class="quoteAuthor">{{author}}</footer>
 </script>

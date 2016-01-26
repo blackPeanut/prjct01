@@ -24,6 +24,7 @@
         <script src="./js/cacheMainBackground.js"></script>
         <script src="./js/famousQuotes.js"></script>
         <script src="./js/menuData.js"></script>
+        <script src="./js/data.js"></script>
         <script src="./js/main.js"></script>
         <script src="./js/authorsData.js"></script>
         <!-- HIDE SCRIPT
@@ -42,13 +43,9 @@
       <div class="wrapper-tmpl">
         <menu class="off-canvas-menu"><!-- main styles will be used -->
           <ul>
-            <li><a href="#"><span>testItem1</span></a></li>
-            <li><a href="#"><span>testItem2</span></a></li>
-            <li><a href="#"><span>testItem3</span></a></li>
-            <li class="logo"><a href="#"><span>Logo</span></a></li>
-            <li><a href="#"><span>testItem4</span></a></li>
-            <li><a href="#"><span>testItem5</span></a></li>
-            <li><a href="#"><span>testItem6</span></a></li>
+            {{#menuData}}
+            <li class="{{class}}"><a href="#{{route}}"><span>{{authorName}}</span></a></li>
+            {{/menuData}}
           </ul>
         </menu>
 
@@ -56,13 +53,9 @@
         <header class="header-tmpl">
         <menu class="menu-dsk-tmpl"><!-- main styles will be used -->
           <ul>
-            <li><a href="#"><span>testItem1</span></a></li>
-            <li><a href="#"><span>testItem2</span></a></li>
-            <li><a href="#"><span>testItem3</span></a></li>
-            <li class="logo"><a href="#"><span>Logo</span></a></li>
-            <li><a href="#"><span>testItem4</span></a></li>
-            <li><a href="#"><span>testItem5</span></a></li>
-            <li><a href="#"><span>testItem6</span></a></li>
+            {{#menuData}}
+            <li class="{{class}}"><a href="#{{route}}"><span>{{authorName}}</span></a></li>
+            {{/menuData}}
           </ul>
         </menu>
           <nav class="nav-tmpl"> <!-- main styles will be used -->
@@ -79,12 +72,55 @@
         </div><!--offside section-->
       </div><!--wrapper-->
 </script>
+
+<script type="text/html" id="page_tmpl_content">
+    <h1>{{name}}</h1>
+    <img src="./img/authors/{{photo}}.jpg" alt="content-image">
+    <p>{{lead}}</p>
+</script>
+
+<script type="text/html" id="quote_tmpl">
+  <p class="quoteText">{{text}}</p>
+  <footer class="quoteAuthor">{{author}}</footer>
+</script>
         <script type="text/html" id="menu_tmpl">
 <ul>
-  {{#authors}}
+  {{#menuData}}
   <li class="{{class}}"><a href="#{{route}}"><span>{{authorName}}</span></a></li>
-  {{/authors}}
+  {{/menuData}}
 </ul>
+</script>
+        <script type="text/html" id="homepage_tmpl">
+      <div class="wrapper">
+        <header class="header">
+          <menu class="menu">
+            <ul>
+            {{#menuData}}
+              <li class="{{class}}"><a href="#{{route}}"><span>{{authorName}}</span></a></li>
+            {{/menuData}}
+            </ul>
+          </menu>
+          <section class="main-page">
+            <blockquote class="blockquote">
+              <p class="quoteText">{{quote.quoteText}}</p>
+              <footer class="quoteAuthor">{{quote.quoteAuthor}}</footer>
+            </blockquote>  
+            <nav class="nav">
+              <button class="mobile-menu-btn">hey</button>
+              <img class="mobile-logo" src="./img/logo.png" alt="mobile-logo">
+            </nav>
+          </section>
+        </header>
+        
+        <main class="main">
+          <h1>Will be filled by Hogan</h1>
+          <img src="./img/paragraph-image.png" alt="content-image">
+          <p>On this site you will find the full and unabridged texts of classic works of English literature. Fiction from authors like Lewis Carroll, the Bronte sisters (Anne, Charlotte and Emily), Jack London, Mark Twain, Charles Dickens and many others, and classic scientific works from Charles Darwin and Rene Descartes.
+    More books will be added soon, however as this site is maintained by enthusiasts rather than professional librarians this may be a very slow process. Our sponsor, the people behind the knowledge.com™ directory, is currently working on new technology that will make this updating easier and quicker in the near future. </p>
+        </main>
+       
+       <footer class="footer"></footer>
+      </div><!--wrapper-->
 </script>
     </head>
 
