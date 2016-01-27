@@ -15,6 +15,14 @@
   bottom: 0;
   margin: auto;
 }
+.centerVH2 {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
 html {
   box-sizing: border-box;
 }
@@ -64,7 +72,7 @@ body,
   max-height: 70%;
 }
 .quoteText {
-  font-size: 1.5em;
+  font-size: 1.4em;
   color: transparent;
 }
 .quoteAuthor {
@@ -155,6 +163,21 @@ body,
   max-width: 100%;
   max-height: 30%;
 }
+.footer {
+  display: none;
+  height: 10%;
+  background: grey;
+  position: relative;
+}
+.footer > span {
+  background: yellow;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
 .offside-section-tmpl {
   overflow: auto;
   background: url("../img/mobile_pattern.png");
@@ -236,6 +259,7 @@ body,
   transform: translate(0, -50%);
 }
 .main-tmpl {
+  height: 70%;
   padding: 5%;
   text-align: center;
 }
@@ -245,6 +269,20 @@ body,
 .main-tmpl img {
   max-width: 100%;
   max-height: 30%;
+}
+.footer-tmpl {
+  height: 10%;
+  background: grey;
+  position: relative;
+}
+.footer-tmpl > span {
+  background: yellow;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 @media (min-width: 850px) {
   .main-page {
@@ -265,7 +303,7 @@ body,
   .main {
     display: none;
     text-align: center;
-    height: 100%;
+    height: 90%;
     padding: 1%;
   }
   .main img {
@@ -273,7 +311,8 @@ body,
     max-height: 50%;
   }
   .menu {
-    visibility: hidden;
+    visibility: visible;
+    opacity: 0;
     width: 100%;
     height: 20%;
     top: auto;
@@ -349,7 +388,7 @@ body,
   .main-tmpl {
     text-align: center;
     display: block;
-    height: 80%;
+    height: 70%;
     padding: 1%;
   }
   .main img {

@@ -17,16 +17,15 @@
         <!--script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script-->
         <script src="js/plugins.js"></script>
-
+        <script src="./js/hogan.js"></script>
+        <script src="./js/director.js"></script>
+        <script src="./js/cacheMainBackground.js"></script>
+        <!-- HIDE SCRIPT
         <script src="https://cdnjs.cloudflare.com/ajax/libs/hogan.js/3.0.2/hogan.min.mustache.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Director/1.2.8/director.js"></script>
         <script src="./js/router.js" defer></script>
-        <script src="./js/cacheMainBackground.js"></script>
-        <script src="./js/famousQuotes.js"></script>
-        <script src="./js/menuData.js"></script>
-        <script src="./js/main.js"></script>
         <script src="./js/authorsData.js"></script>
-        <!-- HIDE SCRIPT
+        <script src="./js/menuData.js"></script>
         --> 
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -42,13 +41,9 @@
       <div class="wrapper-tmpl">
         <menu class="off-canvas-menu"><!-- main styles will be used -->
           <ul>
-            <li><a href="#"><span>testItem1</span></a></li>
-            <li><a href="#"><span>testItem2</span></a></li>
-            <li><a href="#"><span>testItem3</span></a></li>
-            <li class="logo"><a href="#"><span>Logo</span></a></li>
-            <li><a href="#"><span>testItem4</span></a></li>
-            <li><a href="#"><span>testItem5</span></a></li>
-            <li><a href="#"><span>testItem6</span></a></li>
+            {{#menuData}}
+            <li class="{{class}}"><a href="#{{route}}"><span>{{authorName}}</span></a></li>
+            {{/menuData}}
           </ul>
         </menu>
 
@@ -56,13 +51,9 @@
         <header class="header-tmpl">
         <menu class="menu-dsk-tmpl"><!-- main styles will be used -->
           <ul>
-            <li><a href="#"><span>testItem1</span></a></li>
-            <li><a href="#"><span>testItem2</span></a></li>
-            <li><a href="#"><span>testItem3</span></a></li>
-            <li class="logo"><a href="#"><span>Logo</span></a></li>
-            <li><a href="#"><span>testItem4</span></a></li>
-            <li><a href="#"><span>testItem5</span></a></li>
-            <li><a href="#"><span>testItem6</span></a></li>
+            {{#menuData}}
+            <li class="{{class}}"><a href="#{{route}}"><span>{{authorName}}</span></a></li>
+            {{/menuData}}
           </ul>
         </menu>
           <nav class="nav-tmpl"> <!-- main styles will be used -->
@@ -75,15 +66,26 @@
           <img src="./img/authors/{{photo}}.jpg" alt="content-image">
           <p>{{lead}}</p>
         </main>
-          <footer class="footer"></footer>
+          <footer class="footer-tmpl"><span>Copyright information</span></footer>
         </div><!--offside section-->
       </div><!--wrapper-->
 </script>
+
+<script type="text/html" id="page_tmpl_content">
+    <h1>{{name}}</h1>
+    <img src="./img/authors/{{photo}}.jpg" alt="content-image">
+    <p>{{lead}}</p>
+</script>
+
+<script type="text/html" id="quote_tmpl">
+  <p class="quoteText">{{text}}</p>
+  <footer class="quoteAuthor">{{author}}</footer>
+</script>
         <script type="text/html" id="menu_tmpl">
 <ul>
-  {{#authors}}
+  {{#menuData}}
   <li class="{{class}}"><a href="#{{route}}"><span>{{authorName}}</span></a></li>
-  {{/authors}}
+  {{/menuData}}
 </ul>
 </script>
     </head>
@@ -122,12 +124,15 @@
     More books will be added soon, however as this site is maintained by enthusiasts rather than professional librarians this may be a very slow process. Our sponsor, the people behind the knowledge.com™ directory, is currently working on new technology that will make this updating easier and quicker in the near future. </p>
         </main>
        
-       <footer class="footer"></footer>
+       <footer class="footer"><span>Copyright information</span></footer>
       </div><!--wrapper-->
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
 
+        <script src="./js/famousQuotes.js"></script>
+        <script src="./js/data.js"></script>
+        <script src="./js/main.js"></script>
     </body>
 </html>

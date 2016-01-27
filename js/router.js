@@ -1,34 +1,34 @@
-/* First function for page rendering
-var renderMyPrettyAuthor = function (authorId) {
-  var template = Hogan.compile(document.querySelector("#paragraphTemplate").innerHTML); //creating template
-  var objectNumber = parseInt(authorId.replace(/\D/g, "")) - 1; //make start author ID from #1
-  var output = template.render(templateData["authors"][objectNumber][authorId]);
-  document.querySelector(".content").innerHTML = output; //input area
-};
-*/
-
-function renderPageTmpl(authorId) {
-  //debugger;
-  var page_tmpl = Hogan.compile(document.querySelector("#page_tmpl").innerHTML); 
-  var objectNumber = parseInt(authorId.replace(/\D/g, "")) - 1; //make start author ID from #1
-  var pageTmplOutput = page_tmpl.render(templateData["authors"][objectNumber][authorId]);
-  document.querySelector("body").innerHTML = pageTmplOutput;
+/*
+function renderPageTemplate(authorId) { 
   
-  var menu_tmpl = Hogan.compile(document.querySelector("#menu_tmpl").innerHTML);
-  var menuTmplOutput = menu_tmpl.render(menuData);
-  document.querySelector(".off-canvas-menu").innerHTML = menuTmplOutput;
-  document.querySelector(".menu-dsk-tmpl").innerHTML = menuTmplOutput;
-}
+  //render page_tmpl (includes off canvas and desktop menu)
+  var page_tmpl = Hogan.compile(document.querySelector("#page_tmpl").innerHTML); 
+  var pageTmplOutput = page_tmpl.render(data);
+  document.querySelector("body").innerHTML = pageTmplOutput;
 
-var routes = {
-  "/jacklondon": function() {renderPageTmpl("id1")},
-  "/frankbaum": function() {renderPageTmpl("id2")},
-  "/lewiscarroll": function() {renderPageTmpl("id3")},
-  //"/home": renderMyHomepage("id0"),
-  "/julesverne": function() {renderPageTmpl("id4")},
-  "/hgwells": function() {renderPageTmpl("id5")},
-  "/hermanmelville": function () {renderPageTmpl("id6")}
+  //render content
+  var content_tmpl = Hogan.compile(document.querySelector("#page_tmpl_content").innerHTML); 
+  var contentTmplOutput = content_tmpl.render(data.authors[authorId]);
+  document.querySelector(".main-tmpl").innerHTML = contentTmplOutput;
 };
 
-var router = Router(routes);
-router.init();
+function renderHomePage () {
+  document.querySelector("body").innerHTML = document.querySelector("#homepage_tmpl").innerHTML
+  showInvisibles(".main");
+  showInvisibles(".footer");
+  showInvisibles(".main-page");
+  document.querySelector(".quoteText").style.color = "white";
+  document.querySelector(".quoteAuthor").style.opacity = "1";
+  document.querySelector(".menu").style.opacity = "1";
+};
+        
+var routes = {
+              "author/:authorId": function (authorId) {renderPageTemplate(authorId)},
+              "/": function () {renderHomePage()}
+};
+
+var options = {html5history: true, convert_hash_in_init: true};
+var router = Router(routes)//.configure(options);
+router.init();//("/foo");
+*/
+// можно создать once для запуска мейна на определенной локации, потому что при прописывании init("/") получается, что у меня при старте индекса сразу в хеш добавляет #/ и запускает триггер на данный рут. Что есть фигня, и этот триггер должен срабатывать только при возврате на главную стараницу. 
