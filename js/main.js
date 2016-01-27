@@ -70,7 +70,7 @@ window.onload = function () {
 
     function closeHeaderDisabler() {
         slideUp(".disabler", function () {
-            showInvisibles(".main", ".footer", ".menu");
+            showInvisibles(".main", ".footer", ".menu", ".footer");
             fadeIn(".menu", 1000);
         }, 100);
     }
