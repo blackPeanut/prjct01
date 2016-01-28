@@ -237,7 +237,8 @@ getEl("body").innerHTML = pageTmplOutput;
 var 
   content_tmpl = Hogan.compile(getEl("#page_tmpl_content").innerHTML), 
   contentTmplOutput = content_tmpl.render(data.authors[authorId]);
-getEl(".main-tmpl").innerHTML = contentTmplOutput;
+//getEl(".main-tmpl").innerHTML = contentTmplOutput;
+getEl(".main-tmpl").innerHTML = getEl("#partial_" + authorId).innerHTML;
 
     fl = true;
     document.querySelector(".mobile-menu-btn").addEventListener("click", function () {
