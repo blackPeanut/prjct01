@@ -34,16 +34,16 @@ quotes: [{
 ],
 menuData: [
     {
-      "route": "author/1", 
-      "authorName": "JackLondon"
+      "route": "page/1", 
+      "authorName": "Page1"
     },
     {
-      "route": "author/2", 
-      "authorName": "Frank Baum"
+      "route": "page/2", 
+      "authorName": "Page2"
     }, 
     {
-      "route": "author/3", 
-      "authorName": "Lewis Carrrol"
+      "route": "page/3", 
+      "authorName": "Page3"
     }, 
     {
       "route": "/", 
@@ -51,16 +51,16 @@ menuData: [
       "authorName": "Home"
     }, 
     {
-      "route": "author/4", 
-      "authorName": "Jules Verne"
+      "route": "page/4", 
+      "authorName": "Page4"
     }, 
     {
-      "route": "author/5", 
-      "authorName": "H.G.Wells"
+      "route": "page/5", 
+      "authorName": "Page5"
     }, 
     {
-      "route": "author/6", 
-      "authorName": "Herman Melville"
+      "route": "page/6", 
+      "authorName": "Page6"
     }
   ]
 ,

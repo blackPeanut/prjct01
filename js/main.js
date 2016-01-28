@@ -226,7 +226,7 @@ function getEl(el) {
     return el;
 }
 
-function renderPageTemplate(authorId) { 
+function renderPageTemplate(pageId) { 
 //render page_tmpl (includes off canvas and desktop menu)
 var 
   page_tmpl = Hogan.compile(getEl("#page_tmpl").innerHTML), 
@@ -236,9 +236,9 @@ getEl("body").innerHTML = pageTmplOutput;
 //render content
 var 
   content_tmpl = Hogan.compile(getEl("#page_tmpl_content").innerHTML), 
-  contentTmplOutput = content_tmpl.render(data.authors[authorId]);
+  contentTmplOutput = content_tmpl.render(data.authors[pageId]);
 //getEl(".main-tmpl").innerHTML = contentTmplOutput;
-getEl(".main-tmpl").innerHTML = getEl("#partial_" + authorId).innerHTML;
+getEl(".main-tmpl").innerHTML = getEl("#partial_" + pageId).innerHTML;
 
     fl = true;
     document.querySelector(".mobile-menu-btn").addEventListener("click", function () {
@@ -268,11 +268,11 @@ getEl(".menu").style.opacity = "1";
 };
 
 var routes = {
-         "/author": {
-           "/:authorId": {
-            on: function (authorId) {renderPageTemplate(authorId)}
+         "/page": {
+           "/:pageId": {
+            on: function (pageId) {renderPageTemplate(pageId)}
             //after: function () {alert("leaving route")}
-            //once: function (id) {alert("authorId is: " + id)}
+            //once: function (id) {alert("pageId is: " + id)}
             }
           },
           "/": {
