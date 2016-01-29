@@ -679,6 +679,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/partials\/page_tmpl_partials.kit": {
+		"fileType": 2048,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/partials\/page_tmpl_partials.kit",
+		"outputAbbreviatedPath": "\/partials\/page_tmpl_partials.html",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/tile-wide.png": {
 		"fileType": 32768,
 		"ignore": 0,

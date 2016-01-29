@@ -13,51 +13,37 @@
 7. Set display: block for main content area
 */
 
-//rendering random quote & menu
-
-
 var 
     homepage,
-    flag = true;
+    offCanvas = false;
+    
+window.addEventListener("click", function (event) {
+  var
+      e = event || window.event;
 
-var fl = true;
-function renderAccordingPage() {
-  if (flag) {
-    mainFunction(); 
-    document.querySelector(".mobile-menu-btn").addEventListener("click", function () {
-      var mainPage = document.querySelector(".main-page");
+  if (e.target.className === "mobile-menu-btn") {   
+      var element = getEl(".offside-section-tmpl") || getEl(".main-page"); 
+      //toggleClass(element, "off-canvas");
+      toggleClass(element, "off-canvas");
+  }
+}, false);
 
-      if (fl) {
-          mainPage.className += " off-canvas";
-          fl = false;
-      }
-      else {
-          mainPage.className = "main-page";
-          fl = true;
-      }
-    }, false);
+
+function toggleClass(el, classToToggle) {
+  var 
+      pattern = new RegExp("(?:^|\\s)" + classToToggle + "(?!\\S)");
+      //globalPattern = new RegExp("(?:^|\s)" + classToToggle + "(?!\S)", "g");
+
+  if (el.className.match(pattern)) {
+    el.className = el.className.replace(pattern, ""); 
   }
   else {
-    renderHomepage(); 
-    fl = true;
-    document.querySelector(".mobile-menu-btn").addEventListener("click", function () {
-      var mainPage = document.querySelector(".main-page");
-
-      if (fl) {
-          mainPage.className += " off-canvas";
-          fl = false;
-      }
-      else {
-          mainPage.className = "main-page";
-          fl = true;
-      }
-    }, false);
+    el.className += " " + classToToggle; 
   }
 }
 
 function mainFunction() {
-
-  flag = false; // fired once
+//  flag = false; // fired once
 
   var
     body = getEl("body"), 
@@ -226,7 +212,7 @@ function getEl(el) {
     return el;
 }
 
-function renderPageTemplate(authorId) { 
+function renderPageTemplate(pageId) { 
 //render page_tmpl (includes off canvas and desktop menu)
 var 
   page_tmpl = Hogan.compile(getEl("#page_tmpl").innerHTML), 
@@ -236,10 +222,11 @@ getEl("body").innerHTML = pageTmplOutput;
 //render content
 var 
   content_tmpl = Hogan.compile(getEl("#page_tmpl_content").innerHTML), 
-  contentTmplOutput = content_tmpl.render(data.authors[authorId]);
-getEl(".main-tmpl").innerHTML = contentTmplOutput;
+  contentTmplOutput = content_tmpl.render(data.authors[pageId]);
+//getEl(".main-tmpl").innerHTML = contentTmplOutput;
+getEl(".main-tmpl").innerHTML = getEl("#partial_" + pageId).innerHTML;
 
-    fl = true;
+    //fl = true;
     document.querySelector(".mobile-menu-btn").addEventListener("click", function () {
       var offsideSection = document.querySelector(".offside-section-tmpl");
 
@@ -256,33 +243,29 @@ getEl(".main-tmpl").innerHTML = contentTmplOutput;
 };
 
 function renderHomepage () {
-getEl("body").innerHTML = homepage;
-
-/*
-showInvisibles(".footer", ".main-page", ".main");
-getEl(".quoteText").style.color = "white";
-getEl(".quoteAuthor").style.opacity = "1";
-getEl(".menu").style.opacity = "1";
-*/
+  getEl("body").innerHTML = homepage;
 };
 
 var routes = {
-         "/author": {
-           "/:authorId": {
-            on: function (authorId) {renderPageTemplate(authorId)}
-            //after: function () {alert("leaving route")}
-            //once: function (id) {alert("authorId is: " + id)}
+         "/page": {
+           "/:pageId": {
+             on: function (pageId) { renderPageTemplate(pageId) }
             }
           },
-          "/": {
-            //once: function () {mainFunction()},
-            on: function () {renderAccordingPage()}
-          }
+          
+         "/": {
+           once: function () { mainFunction() },
+           before: function () { renderHomepage() }
+         }
 };
 
-var options = { html5history: true, convert_hash_in_init: true };
-var router = Router(routes)//.configure(options);
-router.init("/");//("/foo");
+var router = Router(routes);
+router.init("/");
+
+/*
+var router = Router(routes).configure(options);
+var options = { html5history: true, run_handler_in_init: false};
+*/
 
 // можно создать once для запуска мейна на определенной локации, потому что при прописывании init("/") получается, что у меня при старте индекса сразу в хеш добавляет #/ и запускает триггер на данный рут. Что есть фигня, и этот триггер должен срабатывать только при возврате на главную стараницу. 
 //off canvas menu slider
