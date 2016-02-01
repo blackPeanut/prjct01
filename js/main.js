@@ -14,8 +14,7 @@
 */
 
 var 
-    homepage,
-    offCanvas = false;
+    homepage;
     
 window.addEventListener("click", function (event) {
   var
@@ -40,6 +39,13 @@ function toggleClass(el, classToToggle) {
   else {
     el.className += " " + classToToggle; 
   }
+}
+
+function getEl(el) {
+  if (typeof el === "string") {
+      return document.querySelector(el);
+  }
+  return el;
 }
 
 function mainFunction() {
@@ -139,108 +145,75 @@ function mainFunction() {
   REUSABLE FUNCTIONS
   ============================================================*/
   function slideUp(element, callback, callbackTimeout) {
-      var
-          elem = document.querySelector(element),
-          elemHeight = parseInt(window.getComputedStyle(elem, null).height),
-          cbTimeout = callbackTimeout ? callbackTimeout : 1,
-          interval;
+    var
+        elem = document.querySelector(element),
+        elemHeight = parseInt(window.getComputedStyle(elem, null).height),
+        cbTimeout = callbackTimeout ? callbackTimeout : 1,
+        interval;
 
-      interval = window.setInterval(function () {
-          elemHeight = elemHeight - 3; elem.style.height = elemHeight + "px";
-          if (elemHeight <= 4) {
-              elem.style.height = 0 + "px";
-              clearInterval(interval);
-              if (callback) {
-                setTimeout(callback, cbTimeout); 
-              }
-          }
-      }, 1);
+    interval = window.setInterval(function () {
+      elemHeight = elemHeight - 3; elem.style.height = elemHeight + "px";
+      if (elemHeight <= 4) {
+        elem.style.height = 0 + "px";
+        clearInterval(interval);
+        if (callback) {
+          setTimeout(callback, cbTimeout); 
+        }
+      }
+    }, 1);
   }
 
   function fadeIn(element, speed, callback, cbTimeout) {
-      var
-          el = getEl(element),
-          opacityValue = 0,
-          interval;
+    var
+        el = getEl(element),
+        opacityValue = 0,
+        interval;
 
-      interval = window.setInterval(function () {
-          opacityValue += 0.02;
-          el.style.opacity = opacityValue;
+    interval = window.setInterval(function () {
+      opacityValue += 0.02;
+      el.style.opacity = opacityValue;
 
-          if (el.style.opacity >= 1) {
-              clearInterval(interval);
+      if (el.style.opacity >= 1) {
+        clearInterval(interval);
 
-              if (callback) {
-                  setTimeout(callback, cbTimeout);
-              }
-          }
-      }, speed / 50);
+        if (callback) {
+            setTimeout(callback, cbTimeout);
+        }
+      }
+    }, speed / 50);
   }
 
   function convertFontToEm(el) {
-      var
-          elFont = parseInt(window.getComputedStyle(getEl(el), null).fontSize),//, 10),
-          rootFont = parseInt(window.getComputedStyle(body, null).fontSize)//, 10);
-          var fontSize = elFont / rootFont;
+    var
+        elFont = parseInt(window.getComputedStyle(getEl(el), null).fontSize),//, 10),
+        rootFont = parseInt(window.getComputedStyle(body, null).fontSize)//, 10);
+        var fontSize = elFont / rootFont;
 
-      return elFont / rootFont;
-  }
-
-  function getEl(el) {
-      if (typeof el === "string") {
-          return document.querySelector(el);
-      }
-      return el;
+    return elFont / rootFont;
   }
 
 }; //mainFunction
-
-// mobile menu btn handler;
-
-
-
 
 
 /*
 ROUTER
 ============================================================*/
 
-function getEl(el) {
-    if (typeof el === "string") {
-        return document.querySelector(el);
-    }
-    return el;
-}
 
 function renderPageTemplate(pageId) { 
-//render page_tmpl (includes off canvas and desktop menu)
-var 
-  page_tmpl = Hogan.compile(getEl("#page_tmpl").innerHTML), 
-  pageTmplOutput = page_tmpl.render(data);
-getEl("body").innerHTML = pageTmplOutput;
+  //render page_tmpl (includes off canvas and desktop menu)
+  var 
+    page_tmpl = Hogan.compile(getEl("#page_tmpl").innerHTML), 
+    pageTmplOutput = page_tmpl.render(data);
+  getEl("body").innerHTML = pageTmplOutput;
 
-//render content
-var 
-  content_tmpl = Hogan.compile(getEl("#page_tmpl_content").innerHTML), 
-  contentTmplOutput = content_tmpl.render(data.authors[pageId]);
-//getEl(".main-tmpl").innerHTML = contentTmplOutput;
-getEl(".main-tmpl").innerHTML = getEl("#partial_" + pageId).innerHTML;
-
-    //fl = true;
-    document.querySelector(".mobile-menu-btn").addEventListener("click", function () {
-      var offsideSection = document.querySelector(".offside-section-tmpl");
-
-      if (fl) {
-          offsideSection.className += " off-canvas";
-          getEl(".off-canvas-menu").style.visibility = "visible";
-          fl = false;
-      }
-      else {
-          offsideSection.className = "offside-section-tmpl";
-          fl = true;
-      }
-    }, false);
-};
+  //render content
+  var 
+    content_tmpl = Hogan.compile(getEl("#page_tmpl_content").innerHTML), 
+    contentTmplOutput = content_tmpl.render(data.authors[pageId]);
+  //getEl(".main-tmpl").innerHTML = contentTmplOutput;
+  getEl(".main-tmpl").innerHTML = getEl("#partial_" + pageId).innerHTML;
+}
 
 function renderHomepage () {
   getEl("body").innerHTML = homepage;
