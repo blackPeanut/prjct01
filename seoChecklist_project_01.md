@@ -3,14 +3,15 @@
 ## [+] 1. Allow access to js/imgs for google bot (should be set in robots.txt)
 
 ## [-] 2. Should adhere to the principles of progressive enchancement.
-  1. [-] basic content should be accessible to all web browsers
-  2. [-] basic functionality should be accessible to all web browsers
+  1. [gtIE8] basic content should be accessible to all web browsers
+  2. [gtIE8] basic functionality should be accessible to all web browsers
   3. [-] sparse, semantic markup contains all content
-  4. [-] enhanced layout is provided by externally linked CSS
-  5. [-] enhanced behavior is provided by unobtrusive, externally linked JavaScript
-  6. [-] end-user web browser preferences are respected
+  4. [X] enhanced layout is provided by externally linked CSS
+  5. [X] enhanced behavior is provided by unobtrusive, externally linked JavaScript
+  6. [X] end-user web browser preferences are respected
 
 ## [-] 3. Best practices of page performance optimization.
+
 ### [-]Optimizing content efficiency
   1. [GI] General optimization and download size reduction (overview article) / Optimizing content efficency
   2. [NA] Eliminating unnecessary downloads
