@@ -1,3 +1,5 @@
+#SEO checklist project_01
+
 ## [+] 1. Allow access to js/imgs for google bot (should be set in robots.txt)
 
 ## [-] 2. Should adhere to the principles of progressive enchancement.
@@ -78,3 +80,4 @@
   7. []Story slide-in/out (part 2)
 
 ~~##Eliminate unnecessary downloads and optimize serving of CSS and Javascript files~~
+
