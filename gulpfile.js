@@ -103,10 +103,8 @@ gulp.task('minifyhtml', ['inline'], function() {
     .pipe(gulp.dest('./'))
 });
 
-/*
-gulp.task('compress', function() {
-    gulp.src('./js/all/bodyScriptsAllMin.js')//index.html')
+gulp.task('zip', function() {
+    gulp.src('./css/min/*.css')//index.html')
 	.pipe(gzip())
-	.pipe(gulp.dest('./'));
+	.pipe(gulp.dest('./css/min'));
 });
-*/
