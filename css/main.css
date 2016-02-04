@@ -61,7 +61,7 @@ body,
 .main-page {
   padding-top: 15%;
   visibility: hidden;
-  background: url("../img/mobile_background.jpg") no-repeat;
+  background: url("img/mobile_background.jpg") no-repeat;
   background-size: cover;
   position: relative;
   transition: left 1s;
@@ -187,7 +187,7 @@ body,
 }
 .offside-section-tmpl {
   overflow: auto;
-  background: url("../img/mobile_pattern.png");
+  background: url("img/mobile_pattern.png");
   position: relative;
   transition: left 1s;
   left: 0;
@@ -296,7 +296,7 @@ body,
 @media (min-width: 850px) {
   .main-page {
     padding-top: 8%;
-    background: url("../img/desktop_background.jpg") no-repeat;
+    background: url("img/desktop_background.jpg") no-repeat;
     background-size: cover;
   }
   .quoteText {
@@ -377,7 +377,7 @@ body,
     vertical-align: middle;
   }
   .wrapper-tmpl {
-    background: url("../img/mobile_pattern.png");
+    background: url("img/mobile_pattern.png");
     overflow: auto;
   }
   .main-tmpl {
